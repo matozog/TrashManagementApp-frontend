@@ -1,0 +1,16 @@
+.loginCard {
+    width: 18rem;
+    background-color: white;
+    border-radius: 5%;
+    margin: 20px;
+    padding: 1.5em;
+}
+
+.loginCardBody{
+    padding: 1em;
+}
+
+.inputStyle{
+    border-radius:5px;
+    border-width: 2px;
+}
