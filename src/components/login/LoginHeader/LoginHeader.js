@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Typography from '@material-ui/core/Typography';
+import './LoginHeader.css'
 
 class LoginHeader extends Component{
     render(){
         return(
-            <Typography component="h2" color="primary" variant="display3" gutterBottom align="center" margin={100}>
+            <h1>
                 Trash Management System
-            </Typography>
+            </h1>
         );
     }
 }
