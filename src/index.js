@@ -4,14 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import store from './store';
-import {addArticle} from './actions';
-import {removeArticle} from './actions'
 import {Provider} from "react-redux"
 import {BrowserRouter } from 'react-router-dom';
-
-window.store = store
-window.addArticle = addArticle
-window.removeArticle = removeArticle
 
 ReactDOM.render(
     <Provider store = {store}>

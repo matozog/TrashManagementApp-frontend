@@ -1,7 +1,10 @@
-import { ADD_ARTICLE, REMOVE_ARTICLE, FOUND_BAD_WORD } from "../constans/action-types";
+import { ADD_ARTICLE, REMOVE_ARTICLE, FOUND_BAD_WORD, CHANGE_MAIN_TAB } from "../constans/action-types";
 
 const initialState = {
-    articles: []
+    articles: [],
+    mainTabs:{
+        choosenTab: "#schedule"
+    }
 };
 
 function rootReducer (state = initialState, action) {
@@ -16,6 +19,14 @@ function rootReducer (state = initialState, action) {
     }
     else if(action.type === FOUND_BAD_WORD){
         console.log("Some error");
+    }
+    else if(action.type === CHANGE_MAIN_TAB){
+        return {
+            ...state,
+            mainTabs:{
+                choosenTab: action.payload
+            }
+        }
     }
     return state;
 }

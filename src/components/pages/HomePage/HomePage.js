@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+import TopMenu from '../../navbar/TopMenu'
+import './HomePage.css'
+import PageContent from '../../page_content/PageContent'
 
 class HomePage extends Component{
 
     render(){
         return (
-            <h1>
-                Home page!
-            </h1>
+            <div>
+                <TopMenu />
+                <PageContent />
+            </div>
         );
     }
 }

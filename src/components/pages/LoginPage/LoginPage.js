@@ -2,17 +2,29 @@ import React, { Component } from 'react';
 import LoginHeader from '../../login/LoginHeader/LoginHeader'
 import LogForm from '../../login/LogForm/LogForm';
 import  '../../pictures/index.js';
-import './LoginPage.css'
+import {Container, Col,  Row } from 'react-bootstrap'
+import './LoginPage.css';
+import '../../pictures/index';
+import PhotoSlider from '../../login/PhotoSlider/PhotoSlider'
 
 class LoginPage extends Component{
 
     render(){
 
         return (
-            <div className="loginPage" align='center'>
-                <LoginHeader/>
-                <LogForm />
-            </div>
+            <Container className="loginPage" >
+                <Row className="test" align="center">
+                    <Col><LoginHeader/></Col>
+                </Row>
+                <Row align="center">
+                    <Col><LogForm /></Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <PhotoSlider />
+                    </Col>
+                </Row>
+            </Container>
         );
     }
 }

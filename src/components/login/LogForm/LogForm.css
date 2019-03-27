@@ -1,9 +1,17 @@
 .loginCard {
-    width: 18rem;
+    width: 28%;
     background-color: white;
-    border-radius: 5%;
-    margin: 20px;
-    padding: 1.5em;
+    border-radius: 10%;
+    margin: 10px;
+    padding: 15px;
+    margin-top:40px;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 720px){
+    .loginCard{
+        width: 75%;
+    }
 }
 
 .loginCardBody{
@@ -13,4 +21,6 @@
 .inputStyle{
     border-radius:5px;
     border-width: 2px;
+    padding: 5px;
+    margin:10px;
 }
