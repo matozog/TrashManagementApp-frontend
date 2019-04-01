@@ -8,9 +8,21 @@ export default class PhotoSlider extends Component{
     render(){
         const photoList = [WelcomePic, PazurCapPic, PazurPullsPic, ChristmasTreePic, McPic, PazurGamePic]
         return(
-            <Carousel align="center">
-                {
-                photoList.map(photo => {
+            // <Carousel align="center">
+            //     {
+            //     photoList.map(photo => {
+            //         return <Carousel.Item>
+            //             <img
+            //             className="img-fluid img"
+            //             src={photo}
+            //             alt="First slide"
+            //             />
+            //         </Carousel.Item>
+            //     })
+            //     }
+            // </Carousel>
+        <Carousel>
+            { photoList.map(photo => {
                     return <Carousel.Item>
                         <img
                         className="d-block w-100"
@@ -20,7 +32,7 @@ export default class PhotoSlider extends Component{
                     </Carousel.Item>
                 })
                 }
-            </Carousel>
+        </Carousel>
         )
     }
 }

@@ -1,17 +1,33 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Card, Button, InputGroup, FormControl } from 'react-bootstrap';
 import {withRouter} from 'react-router-dom';
 import './LogForm.css';
+import InfoDialog from '../InfoDialog/InfoDialog'
 
 
 class LogForm extends Component{
 
+    constructor(){
+        super()
+
+        this.state = {
+            modalShow: false
+        }
+    }
+
+    
     handleLoginAction = () =>{
         this.props.history.push("/home");
     }
 
+    handleShowInfoDialog = () =>{
+        this.setState({modalShow: true})
+        console.log(this.state)
+    }
+
     render(){
+
+        let modalClose = () => this.setState({ modalShow: false });
 
         return (
             <Card className="loginCard">
@@ -37,17 +53,13 @@ class LogForm extends Component{
                     <Button variant="primary" onClick={this.handleLoginAction}>Enter!</Button>
                 </Card.Body>
                 <Card.Footer>
-                    <Card.Link href="#">Any problems with password?</Card.Link>
-                    <br></br>
-                    <Card.Link href="#">No account?</Card.Link>
+                    <Button className="btn-link btn-light" onClick={this.handleShowInfoDialog}>Any problems with password?</Button><br></br>
+                    <Button className="btn-link btn-light" onClick={this.handleShowInfoDialog}>No account?</Button>
                 </Card.Footer>
+                <InfoDialog show = {this.state.modalShow} onHide={modalClose}/>
             </Card>
         );
     }
 }
-
-LogForm.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
 
 export default withRouter(LogForm);

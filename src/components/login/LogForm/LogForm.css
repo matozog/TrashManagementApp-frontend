@@ -1,5 +1,5 @@
 .loginCard {
-    width: 28%;
+    width: 30%;
     background-color: white;
     border-radius: 10%;
     margin: 10px;
@@ -8,9 +8,21 @@
     margin-bottom: 30px;
 }
 
+@media screen and (min-width: 1024px){
+    .loginCard{
+        width:30%;
+    }
+}
+
 @media screen and (max-width: 720px){
     .loginCard{
         width: 90%;
+    }
+}
+
+@media screen and ( max-width: 1024px) and (min-width:600px){
+    .loginCard{
+        width:50%;
     }
 }
 

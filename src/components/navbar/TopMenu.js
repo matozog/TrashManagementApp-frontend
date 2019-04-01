@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import {Navbar, Nav, NavDropdown, Image, NavItem, NavbarBrand} from 'react-bootstrap'
+import {Navbar, Nav, Image} from 'react-bootstrap'
 import {changeMainTab} from '../../actions/index' 
 import './TopMenu.css'
 import Photo from '../../resources/images/photo/powitanie.jpg'
@@ -47,11 +47,9 @@ class TopMenu extends Component{
                         <Nav.Link id="dustmans" href="#dustmans">Others dustmans</Nav.Link>
                     </Nav>
                     <Nav className="navbar-nav" onSelect={this.handleSelectTab}>
-                        <Nav.Item>
                         <Nav.Link href="#profile">
                             <Image className='imgUser' src={Photo} roundedCircle/>
                         </Nav.Link>
-                        </Nav.Item>
                         <Nav.Link href="/">Logout</Nav.Link>
                     </Nav>
                  </Navbar.Collapse>
