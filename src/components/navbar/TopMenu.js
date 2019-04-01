@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import {Navbar, Nav, Image, NavDropdown} from 'react-bootstrap'
+import {Navbar, Nav, NavDropdown, Image, NavItem, NavbarBrand} from 'react-bootstrap'
 import {changeMainTab} from '../../actions/index' 
 import './TopMenu.css'
-import TrashImage from '../../resources/images/trash-background_.jpg'
 import Photo from '../../resources/images/photo/powitanie.jpg'
+import BrandImage from '../../resources/images/trash-background_.jpg'
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -13,6 +13,19 @@ function mapDispatchToProps(dispatch) {
   }
 
 class TopMenu extends Component{
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+          isOpen: false
+        };
+      }
+      
+    toggle() {
+        this.setState({
+          isOpen: !this.state.isOpen
+        });
+    }
 
     handleSelectTab = event => {
         this.props.changeMainTab(event)
@@ -21,30 +34,29 @@ class TopMenu extends Component{
     render(){
 
         return (
-        
-        <Navbar bg="dark" variant="dark" collapseOnSelect expand='lg' >
-            <Navbar.Brand href="/home">
-                <Image className='imgBrand' src={TrashImage} roundedCircle />
-            </Navbar.Brand>
-            <Nav className="mr-auto" onSelect={this.handleSelectTab}>
-                <Nav.Link id="schedule" href="#schedule">Schedule</Nav.Link>
-                <Nav.Link id="profile" href="#profile">Profile</Nav.Link>
-                <Nav.Link id="dustmans" href="#dustmans">Others dustmans</Nav.Link>
-            </Nav>
-            {/* <Navbar.Toggle id="responsive-navbar-nav">
-                <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                    <NavDropdown.Item href="#schedule">Schedule</NavDropdown.Item>
-                    <NavDropdown.Item href="#profile">Profile action</NavDropdown.Item>
-                    <NavDropdown.Item href="#dustmans">Others dustmans</NavDropdown.Item>
-                </NavDropdown>
-            </Navbar.Toggle> */}
-
-            <Nav.Item className="userPart">
-                <Image className='imgUser' src={Photo} roundedCircle/>
-                <Nav.Link href="/">Logout</Nav.Link>
-            </Nav.Item>
-        </Navbar>
-
+        <div>
+            <Navbar className="topMenu" collapseOnSelect expand="lg" bg="dark" variant="dark">
+                    <Navbar.Brand href="https://mapa.targeo.pl/drukarnia-petit-s-c-kuropatwia-5-51-419-wroclaw~6009185/drukarnia/adres">
+                        <Image className="imgBrand" src={BrandImage} roundedCircle/> Kuropatwia 5   
+                    </Navbar.Brand>
+                    <Navbar.Toggle id="responsive-navbar-nav" className="navbar-toggler"/>
+                <Navbar.Collapse id="responsive-navbar-nav" className="navbar-collapse collapse">
+                    <Nav className="mr-auto navbar-nav" onSelect={this.handleSelectTab}>
+                        <Nav.Link id="schedule" href="#schedule">Schedule</Nav.Link>
+                        <Nav.Link id="profile" href="#profile">Profile</Nav.Link>
+                        <Nav.Link id="dustmans" href="#dustmans">Others dustmans</Nav.Link>
+                    </Nav>
+                    <Nav className="navbar-nav" onSelect={this.handleSelectTab}>
+                        <Nav.Item>
+                        <Nav.Link href="#profile">
+                            <Image className='imgUser' src={Photo} roundedCircle/>
+                        </Nav.Link>
+                        </Nav.Item>
+                        <Nav.Link href="/">Logout</Nav.Link>
+                    </Nav>
+                 </Navbar.Collapse>
+            </Navbar>
+        </div>
         );
     }
 }
