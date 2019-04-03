@@ -14,7 +14,7 @@ class InfoDialog extends Component{
             <Modal.Body>
                 <p>
                     This option is not implemented yet. If you have any problems with service you should 
-                    contact with administrator.
+                    contact with administrator. @Zukuu
                 </p>
             </Modal.Body>
             <Modal.Footer>
