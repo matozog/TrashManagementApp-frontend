@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LoginHeader from '../../login/LoginHeader/LoginHeader'
-import LogForm from '../../login/LogForm/LogForm';
+import LoginForm from '../../login/LoginForm/LoginForm';
 import  '../../pictures/index.js';
 import {Container, Col,  Row } from 'react-bootstrap'
 import './LoginPage.css';
@@ -17,7 +17,7 @@ class LoginPage extends Component{
                     <Col><LoginHeader/></Col>
                 </Row>
                 <Row align="center">
-                    <Col><LogForm /></Col>
+                    <Col><LoginForm /></Col>
                 </Row>
                 <Row>
                     <Col>

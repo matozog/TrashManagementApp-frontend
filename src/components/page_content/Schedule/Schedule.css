@@ -1,5 +1,12 @@
-.table-container{
+.container{
     margin:auto!important;
-    padding-left: 3%;
-    padding-right: 3%;
+}
+
+.cards-container{
+   
+}
+
+.card{
+    /* height: 200px; */
+    margin: 20px;
 }

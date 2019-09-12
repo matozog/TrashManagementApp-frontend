@@ -1,42 +1,42 @@
 import React, { Component } from 'react';
-import {Table} from 'react-bootstrap'
-import './Schedule.css'
+import './Schedule.css';
+import { Card, Button, CardDeck, CardColumns, ListGroup, ListGroupItem } from "react-bootstrap"
+import { dustmans } from "./dustman-test"
+import Avatar from "../../../resources/images/photo/choinka.jpg"
 
-class Schedule extends Component{
+class Schedule extends Component {
 
-    render(){
+    constructor() {
+        super();
+        this.state = {
+            dustmans: []
+        }
+    }
+
+    componentDidMount() {
+
+    }
+
+    render() {
         return (
-            <div className="table-container">
-            <Table striped bordered hover variant="dark">
-                <thead>
-                    <tr>
-                    <th>Trash</th>
-                    <th>Toilet paper</th>
-                    <th>Oil</th>
-                    <th>Soap</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    </tr>
-                    <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <td>3</td>
-                    <td >Larry the Bird</td>
-                    <td>@facebook</td>
-                    <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </Table>
+            <div className="container">
+                <CardDeck className="cards-container">
+                    {dustmans.map((dustman, index) => (
+                        <Card className="dustman-card" key={index} bg="light" border="dark">
+                            <Card.Img variant="top" src={Avatar} style={{ height: "200px" }} />
+                            <Card.Body>
+                                <Card.Title>{dustman.name}</Card.Title>
+                                <ListGroup className="list-group-flush">
+                                    <ListGroupItem>Oil: {dustman.oil}</ListGroupItem>
+                                    <ListGroupItem>Paper: {dustman.paper} </ListGroupItem>
+                                </ListGroup>
+                            </Card.Body>
+                            <Card.Footer>
+                                <Button variant="primary"> Profile </Button>
+                            </Card.Footer>
+                        </Card>
+                    ))}
+                </CardDeck>
             </div>
         );
     }
