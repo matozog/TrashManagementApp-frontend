@@ -3,6 +3,7 @@ import './Schedule.css';
 import { Card, Button, CardDeck, CardColumns, ListGroup, ListGroupItem } from "react-bootstrap"
 import { dustmans } from "./dustman-test"
 import Avatar from "../../../resources/images/photo/choinka.jpg"
+import SortBar from "./SortBar"
 
 class Schedule extends Component {
 
@@ -20,6 +21,7 @@ class Schedule extends Component {
     render() {
         return (
             <div className="container">
+                <SortBar />
                 <CardDeck className="cards-container">
                     {dustmans.map((dustman, index) => (
                         <Card className="dustman-card" key={index} bg="light" border="dark">
