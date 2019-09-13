@@ -1,4 +1,4 @@
-import { ADD_ARTICLE, REMOVE_ARTICLE, FOUND_BAD_WORD, CHANGE_MAIN_TAB } from "../constans/action-types";
+import { ADD_ARTICLE, REMOVE_ARTICLE, FOUND_BAD_WORD, CHANGE_MAIN_TAB, CHANGE_SORTING_TYPE } from "../constans/action-types";
 
 export const addArticle =  payload => {
     return {type: ADD_ARTICLE, payload}
@@ -14,4 +14,8 @@ export const foundedBadWords = () => {
 
 export const changeMainTab = payload =>{
     return {type: CHANGE_MAIN_TAB, payload}
+}
+
+export const changeSortingType = payload => {
+    return { type: CHANGE_SORTING_TYPE, payload}
 }

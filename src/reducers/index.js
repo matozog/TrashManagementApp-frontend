@@ -1,10 +1,11 @@
-import { ADD_ARTICLE, REMOVE_ARTICLE, FOUND_BAD_WORD, CHANGE_MAIN_TAB } from "../constans/action-types";
+import { ADD_ARTICLE, REMOVE_ARTICLE, FOUND_BAD_WORD, CHANGE_MAIN_TAB, CHANGE_SORTING_TYPE } from "../constans/action-types";
 
 const initialState = {
     articles: [],
     mainTabs:{
         choosenTab: "#schedule"
-    }
+    },
+    sortTypeInSchedule: "Oil"
 };
 
 function rootReducer (state = initialState, action) {
@@ -26,6 +27,12 @@ function rootReducer (state = initialState, action) {
             mainTabs:{
                 choosenTab: action.payload
             }
+        }
+    }
+    else if(action.type === CHANGE_SORTING_TYPE){
+        return{
+            ...state,
+            sortTypeInSchedule: action.payload
         }
     }
     return state;
