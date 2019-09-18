@@ -23,15 +23,14 @@ class Schedule extends Component {
     }
 
     componentDidMount() {
-        this.sortDustmans()
+        this.sortDustmans(this.props.sortingType.toLowerCase())
     }
 
-    sortDustmans = () => {
+    sortDustmans = (sortType) => {
         this.setState({
             isLoading: true
         })
-        const sortType = this.props.sortingType
-        dustmans.sort((a,b) => (a.sortType > b.sortType) ? 1: -1)
+        dustmans.sort((a,b) => (a[sortType] > b[sortType]) ? 1: -1)
         this.setState({
             isLoading: false
         })
@@ -42,7 +41,7 @@ class Schedule extends Component {
             <div className="container">
                 <SortBar sortDustmans={this.sortDustmans}/>
                 {this.state.isLoading ? <Spinner animation="border" variant="dark" />:
-                <CardDeck className="cards-container">
+                <CardDeck bsPrefix="deck" className="cards-container">
                     {dustmans.map((dustman, index) => (
                         <Card className="dustman-card" key={index} bg="light" border="dark">
                             <Card.Img variant="top" src={Avatar} style={{ height: "200px" }} />

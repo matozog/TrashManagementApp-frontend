@@ -3,7 +3,17 @@
 }
 
 .cards-container{
-   
+
+}
+
+@media (min-width: 400px){
+    .deck{
+        display: grid;
+        margin-left: -15px;
+        margin-right: -15px;
+        grid-template-columns: repeat(auto-fit, 250px);
+        justify-content: center;
+    }
 }
 
 .card{

@@ -19,8 +19,9 @@ function mapDispatchToProps(dispatch){
 class SortBar extends Component {
 
     selectSortingType = (e) => {
-        this.props.changeSortingType(e.target.value);
-        this.props.sortDustmans();
+        const newSortType = e.target.value
+        this.props.changeSortingType(newSortType);
+        this.props.sortDustmans(newSortType.toLowerCase());
     }
 
     render() {
