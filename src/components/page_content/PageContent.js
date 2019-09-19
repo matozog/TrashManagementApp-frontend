@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './PageContent.css'
 import { connect } from "react-redux";
-import UserProfile from './UserProfile/UserProfile';
+import Purchases from './Purchases/Purchases';
 import DustmansTab from './DustmansTab/DustmansTab';
 import Schedule from './Schedule/Schedule'
 
@@ -17,7 +17,7 @@ class PageContent extends Component{
         return (
             <div>
                 {this.props.mainTabs.choosenTab==="#schedule" && <Schedule />}
-                {this.props.mainTabs.choosenTab==="#profile" && <UserProfile />}
+                {this.props.mainTabs.choosenTab==="#profile" && <Purchases />}
                 {this.props.mainTabs.choosenTab==="#dustmans" && <DustmansTab />}
             </div>
         );

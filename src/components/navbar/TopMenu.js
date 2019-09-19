@@ -43,8 +43,8 @@ class TopMenu extends Component{
                 <Navbar.Collapse id="responsive-navbar-nav" className="navbar-collapse collapse">
                     <Nav className="mr-auto navbar-nav" onSelect={this.handleSelectTab}>
                         <Nav.Link id="schedule" href="#schedule">Schedule</Nav.Link>
-                        <Nav.Link id="profile" href="#profile">Profile</Nav.Link>
-                        <Nav.Link id="dustmans" href="#dustmans">Others dustmans</Nav.Link>
+                        <Nav.Link id="profile" href="#profile">Purchases</Nav.Link>
+                        <Nav.Link id="dustmans" href="#dustmans">Nothing</Nav.Link>
                     </Nav>
                     <Nav className="navbar-nav" onSelect={this.handleSelectTab}>
                         <Nav.Link href="#profile">
