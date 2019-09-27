@@ -2,10 +2,6 @@
     margin:auto!important;
 }
 
-.cards-container{
-
-}
-
 @media (min-width: 400px){
     .deck{
         display: grid;

@@ -5,7 +5,14 @@ import './LoginForm.css';
 import InfoDialog from '../InfoDialog/InfoDialog'
 import { Formik, Field, Form } from "formik";
 import * as yup from 'yup';
+import { connect } from "react-redux";
+import { changeLoggedUser } from "./../../../actions/index"
 
+const mapDispatchToProps = dispatch => {
+    return {
+        changeLoggedUser: newUser => dispatch(changeLoggedUser(newUser))
+    };
+}
 
 const signInSchema = yup.object().shape({
     login: yup.string()
@@ -25,7 +32,8 @@ class LoginForm extends Component {
     }
 
 
-    handleLoginAction = () => {
+    handleLoginAction = (user) => {
+        this.props.changeLoggedUser(user)
         this.props.history.push("/home");
     }
 
@@ -46,7 +54,7 @@ class LoginForm extends Component {
                     setTimeout(() => {
                        window.alert(values.login)
                     }, 1000);
-                    this.handleLoginAction()
+                    this.handleLoginAction(values.login)
                 }}
                 render={({ values, errors, handleChange }) => (
                     <Form>
@@ -79,4 +87,4 @@ class LoginForm extends Component {
     }
 }
 
-export default withRouter(LoginForm);
+export default connect(null, mapDispatchToProps)(withRouter(LoginForm));
