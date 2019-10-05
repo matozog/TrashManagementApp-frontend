@@ -1,0 +1,20 @@
+.add-button-green{
+    background-color: green;
+    margin: 30px 0px 30px 0px;
+    border-radius: 35px;
+}
+
+.add-button-red{
+    background-color: red;
+    margin: 30px 0px 30px 0px;
+    border-radius: 35px;
+
+}
+
+.add-button-green:active,  .add-button-green:focus{
+    background-color: green !important;
+}
+
+.add-button-red:active, .add-button-red:focus{
+    background-color: red !important;
+}

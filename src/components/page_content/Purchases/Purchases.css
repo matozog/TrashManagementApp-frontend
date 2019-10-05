@@ -11,6 +11,11 @@
     padding-top: 20px;
 }
 
+.footer{
+    display: flex;
+    justify-content: center;
+}
+
 .sub-header {
     border-bottom-style: double;
     margin: .5rem 3px 0px 3px;
@@ -20,5 +25,12 @@
 .not-confirmed-purchase{
     display: flex;
     justify-content: center;
+}
+
+.confirm-button{
+    border-radius: 20px;
+    margin: 10px 0px 10px 0px;
+    padding: 15px;
+    width: 200px;
 }
 
