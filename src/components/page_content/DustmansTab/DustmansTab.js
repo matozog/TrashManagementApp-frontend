@@ -6,7 +6,7 @@ class DustmansTab extends Component{
     render(){
         return (
             <div>
-                <p1>Dustmans tab</p1>
+                <p1>Free space</p1>
             </div>
         );
     }

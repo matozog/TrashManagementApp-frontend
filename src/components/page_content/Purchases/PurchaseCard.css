@@ -1,9 +1,68 @@
-.purchase-card{
+.purchase-card {
     margin: 10px 20px 10px 20px;
-    padding: 10px 20px 10px 20px;
     display: -webkit-box;
 }
 
-.dropdown-button{
+h6 {
+    padding: 5px 5px 0px 20px;
+    margin-bottom: 5px;
+}
+
+.dropdown-button {
     padding: 5px 10px 5px 10px;
+}
+
+.product-info, .date-info, .user-info {
+    display: flex;
+    align-items: center;
+    margin: 0px;
+    padding: 10px;
+}
+
+.purchase{
+    display: flex;
+    justify-content: center;
+}
+
+.add-button{
+    margin: 30px 0px 30px 0px;
+    border-radius: 35px;
+}
+
+.product-info, .date-info{
+    border-right-style: inset;
+    margin: 5px;
+}
+
+@media (max-width: 640px){
+    h6{
+        padding: 0px 5px 0px 7px;
+    }
+
+    .react-datepicker-component .react-datepicker-input input {
+        padding-left: 5px !important;
+        padding-right: 35px !important;
+        max-width: 120px;
+    }
+
+    .react-datepicker-component {
+        padding: 0px 10px 0px 10px;
+    }
+
+    .purchase-card {
+        margin: 5px 10px 5px 10px !important;
+        display: -webkit-box;
+    }
+
+    .product-info, .date-info, .user-info {
+        margin: 0px;
+        padding: 5px 0px 5px 0px;
+    }
+
+}
+
+@media (max-width: 380px){
+    .dropdown-button {
+        max-width: 50px;
+    }
 }

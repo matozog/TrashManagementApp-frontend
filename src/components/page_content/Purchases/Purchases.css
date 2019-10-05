@@ -1,3 +1,24 @@
-.purchases-container{
+.purchases-container {
     margin: auto!important;
 }
+
+.new-purchase {
+    display: flex;
+    justify-content: center;
+    border-bottom-style: double;
+    margin: 0px 3px 0px 3px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.sub-header {
+    border-bottom-style: double;
+    margin: .5rem 3px 0px 3px;
+    padding: 10px;
+}
+
+.not-confirmed-purchase{
+    display: flex;
+    justify-content: center;
+}
+
