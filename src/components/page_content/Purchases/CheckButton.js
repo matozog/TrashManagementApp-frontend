@@ -13,7 +13,6 @@ export default class CheckButton extends Component {
 
     handleClickButton = (event) => {
         this.setState({enabled: !this.state.enabled})
-        console.log(this.state.enabled)
     }
 
     render() {

@@ -14,8 +14,23 @@ class PurchaseCard extends Component {
         super()
         this.state = {
             chosenArticle: defaultArticle,
-            amountOfPurchases: 1
+            amountOfPurchases: 1,
+            date: Date.now(),
+            buyer: ""
         }
+    }
+
+    componentDidMount() {
+        if (this.props.disabledCard) {
+            this.setState({
+                chosenArticle: this.props.product,
+                amountOfPurchases: this.props.amount,
+                date: this.props.date,
+            })
+        }
+        this.setState({
+            buyer: this.props.buyer
+        })
     }
 
     handleChoosingArticle = (event) => {
@@ -23,6 +38,7 @@ class PurchaseCard extends Component {
         this.setState({
             chosenArticle: event.target.value
         })
+        this.props.changePurchaseParam(event)
     }
 
     handleChoosingQuantity = (event) => {
@@ -31,10 +47,14 @@ class PurchaseCard extends Component {
             ...this.state,
             amountOfPurchases: event.target.value
         })
+        this.props.changePurchaseParam(event)
     }
 
     handleChangeDate = (jsDate, dateString) => {
-        console.log(jsDate, dateString)
+        this.setState({
+            date: dateString
+        })
+        this.props.changePurchaseParam(dateString)
     }
 
     render() {
@@ -43,33 +63,34 @@ class PurchaseCard extends Component {
                 <Card className="purchase-card">
                     <div className="product-info">
                         <Dropdown className="dropdown-button">
-                            <Dropdown.Toggle variant="success" id="dropdown-basic">
+                            <Dropdown.Toggle disabled={this.props.disabledCard} variant="success" id="dropdown-basic">
                                 {(this.props.article !== undefined) ? this.props.article : this.state.chosenArticle}
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
-                                <Dropdown.Item as="button" onClick={this.handleChoosingArticle} value="Oil">Oil</Dropdown.Item>
-                                <Dropdown.Item as="button" onClick={this.handleChoosingArticle} value="Paper">Paper</Dropdown.Item>
-                                <Dropdown.Item as="button" onClick={this.handleChoosingArticle} value="Super dlugi produkt">Super dlugi produkt</Dropdown.Item>
+                                <Dropdown.Item id="product" as="button" onClick={this.handleChoosingArticle} value="Oil">Oil</Dropdown.Item>
+                                <Dropdown.Item id="product" as="button" onClick={this.handleChoosingArticle} value="Paper">Paper</Dropdown.Item>
+                                <Dropdown.Item id="product" as="button" onClick={this.handleChoosingArticle} value="Super dlugi produkt">Super dlugi produkt</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
 
                         <h6> Ratio:  </h6>
 
                         <Dropdown className="dropdown-button">
-                            <Dropdown.Toggle variant="success" id="dropdown-basic">
+                            <Dropdown.Toggle disabled={this.props.disabledCard} variant="success" id="dropdown-basic">
                                 {this.state.amountOfPurchases}
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
-                                <Dropdown.Item as="button" onClick={this.handleChoosingQuantity} value="1">1</Dropdown.Item>
-                                <Dropdown.Item as="button" onClick={this.handleChoosingQuantity} value="2">2</Dropdown.Item>
+                                <Dropdown.Item id="amount" as="button" onClick={this.handleChoosingQuantity} value="1">1</Dropdown.Item>
+                                <Dropdown.Item id="amount" as="button" onClick={this.handleChoosingQuantity} value="2">2</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     </div>
                     <div className="date-info">
                         <DatePickerInput
                             onChange={this.handleChangeDate}
-                            value={Date.now()}
+                            value={this.state.date}
                             className='date-picker'
+                            disabled={this.props.disabledCard}
                         // {...anyReactInputProps}
                         />
                     </div>

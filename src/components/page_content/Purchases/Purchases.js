@@ -11,38 +11,90 @@ const mapStateToProps = state => {
     }
 }
 
-const examplePurchases = [
+let examplePurchases = [
     {
         id: "1",
         product: "Oil",
         amount: 2,
-        date: "22-09-2019",
+        date: "2019-09-22",
         user: "zuku"
     },
     {
         id: "2",
         product: "Paper",
         amount: 4,
-        date: "25-09-2019",
+        date: "2019-09-25",
         user: "zuku"
     },
 ]
 
 class UserProfile extends Component {
 
+    constructor() {
+        super()
+        this.state = {
+            newPurchase: {
+                product: "",
+                amount: 0,
+                date: "",
+                user: ""
+            }
+        }
+    }
+
+    handleAddNewPurchase = () => {
+        examplePurchases.push(this.state.newPurchase)
+        this.forceUpdate()
+    }
+
+    handleChangePurchaseParam = (source) => {
+        if (source.target !== undefined) {
+            const newValue = source.target.value
+            if (source.target.id === "product") {
+                this.setState(prevState => ({
+                    newPurchase: {
+                        ...prevState.newPurchase,
+                        product: newValue,
+
+                    }
+                }))
+            } else {
+                this.setState((prevState, props) => ({
+                    newPurchase: {
+                        ...prevState.newPurchase,
+                        amount: newValue
+                    }
+                }))
+            }
+        } else {
+            this.setState( prevState => ({
+                newPurchase: {
+                    ...prevState.newPurchase,
+                    date: source
+                }
+            }))
+        }
+    }
+
+    componentDidMount() {
+        this.setState({
+            buyer: this.props.loggedUser
+        })
+    }
+
     render() {
         return (
             <div className="purchases-container">
                 <div className="new-purchase">
-                    <PurchaseCard buyer={this.props.loggedUser} />
-                    <Button variant="success" className="add-button">Add</Button>
+                    <PurchaseCard changePurchaseParam={this.handleChangePurchaseParam} buyer={this.props.loggedUser} newPurchase={this.state.newPurchase} />
+                    <Button variant="success" className="add-button" onClick={this.handleAddNewPurchase}>Add</Button>
                 </div>
                 <div className="sub-header">
                     <h5 align="center"> Waiting for confirm:  </h5>
                 </div>
                 {examplePurchases.map(purchase => {
                     return <div className="not-confirmed-purchase">
-                        <PurchaseCard product={purchase.product} amount={purchase.amount} date={purchase.date} buyer={purchase.user} />
+                        <PurchaseCard product={purchase.product} amount={purchase.amount} date={purchase.date} buyer={purchase.user} disabledCard={true} />
                         <CheckButton purchase={purchase} />
                     </div>
                 })}

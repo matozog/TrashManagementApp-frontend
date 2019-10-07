@@ -11,10 +11,10 @@
 
 }
 
-.add-button-green:active,  .add-button-green:focus{
+.add-button-green:active,  .add-button-green:focus, .add-button-green:hover{
     background-color: green !important;
 }
 
-.add-button-red:active, .add-button-red:focus{
+.add-button-red:active, .add-button-red:focus, .add-button-red:hover{
     background-color: red !important;
 }
