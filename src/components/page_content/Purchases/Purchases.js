@@ -48,6 +48,7 @@ class UserProfile extends Component {
     }
 
     handleChangePurchaseParam = (source) => {
+        console.log(source)
         if (source.target !== undefined) {
             const newValue = source.target.value
             if (source.target.id === "product") {

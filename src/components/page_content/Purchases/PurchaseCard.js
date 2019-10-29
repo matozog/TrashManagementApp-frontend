@@ -5,6 +5,8 @@ import './PurchaseCard.css'
 import 'moment/locale/en-ie';
 import 'rc-datepicker/lib/style.css';
 import Photo from '../../../resources/images/photo/powitanie.jpg'
+import { products } from './../../../constans/index'
+
 
 const defaultArticle = "Oil"
 
@@ -63,17 +65,18 @@ class PurchaseCard extends Component {
                 <Card className="purchase-card">
                     <div className="product-info">
                         <Dropdown className="dropdown-button">
-                            <Dropdown.Toggle disabled={this.props.disabledCard} variant="success" id="dropdown-basic">
+                            <Dropdown.Toggle disabled={this.props.disabledCard} variant="success" className = "dropdown-button-products" id="dropdown-basic">
                                 {(this.props.article !== undefined) ? this.props.article : this.state.chosenArticle}
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
-                                <Dropdown.Item id="product" as="button" onClick={this.handleChoosingArticle} value="Oil">Oil</Dropdown.Item>
-                                <Dropdown.Item id="product" as="button" onClick={this.handleChoosingArticle} value="Paper">Paper</Dropdown.Item>
-                                <Dropdown.Item id="product" as="button" onClick={this.handleChoosingArticle} value="Super dlugi produkt">Super dlugi produkt</Dropdown.Item>
+                                {products.map(product => {
+                                    return <Dropdown.Item id="product" as="button" onClick={this.handleChoosingArticle} value={product}>{product}</Dropdown.Item>
+
+                                })}
                             </Dropdown.Menu>
                         </Dropdown>
 
-                        <h6> Ratio:  </h6>
+                        <h6 className="ratio"> Ratio:  </h6>
 
                         <Dropdown className="dropdown-button">
                             <Dropdown.Toggle disabled={this.props.disabledCard} variant="success" id="dropdown-basic">
@@ -82,6 +85,7 @@ class PurchaseCard extends Component {
                             <Dropdown.Menu>
                                 <Dropdown.Item id="amount" as="button" onClick={this.handleChoosingQuantity} value="1">1</Dropdown.Item>
                                 <Dropdown.Item id="amount" as="button" onClick={this.handleChoosingQuantity} value="2">2</Dropdown.Item>
+                                <Dropdown.Item id="amount" as="button" onClick={this.handleChoosingQuantity} value="3">3</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     </div>

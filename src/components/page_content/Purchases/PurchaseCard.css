@@ -12,6 +12,10 @@ h6 {
     padding: 5px 10px 5px 10px;
 }
 
+.dropdown-button-products{
+    width: 110px;
+}
+
 .product-info, .date-info, .user-info {
     display: flex;
     align-items: center;
@@ -34,7 +38,7 @@ h6 {
     margin: 5px;
 }
 
-@media (max-width: 640px){
+@media (max-width: 790px){
     h6{
         padding: 0px 5px 0px 7px;
     }
@@ -61,8 +65,18 @@ h6 {
 
 }
 
-@media (max-width: 380px){
-    .dropdown-button {
-        max-width: 50px;
+@media(max-width: 590px){
+    .ratio{
+        display: none;
+    }
+}
+ 
+@media (max-width: 530px){
+    .purchase-card{
+        display: block;
+    }
+
+    .date-info, .user-info{
+        justify-content: center;
     }
 }

@@ -3,6 +3,7 @@ import { DropdownButton, Dropdown } from 'react-bootstrap'
 import "./SortBar.css"
 import { connect } from "react-redux";
 import {changeSortingType} from '../../../actions/index' ;
+import { products } from './../../../constans/index'
 
 const mapStateToProps = state =>{
     return{
@@ -21,7 +22,7 @@ class SortBar extends Component {
     selectSortingType = (e) => {
         const newSortType = e.target.value
         this.props.changeSortingType(newSortType);
-        this.props.sortDustmans(newSortType.toLowerCase());
+        this.props.sortDustmans(newSortType);
     }
 
     render() {
@@ -29,8 +30,10 @@ class SortBar extends Component {
             <div className="sort-bar">
                 <h4>Sort by:</h4>
                 <DropdownButton id="dropdown-item-button" title={this.props.sortingType}>
-                    <Dropdown.Item onClick={this.selectSortingType} as="button" value="Oil">Oil</Dropdown.Item>
-                    <Dropdown.Item onClick={this.selectSortingType} as="button" value="Paper">Paper</Dropdown.Item>
+                    {products.map(type => {
+                        return <Dropdown.Item onClick={this.selectSortingType} as="button" value={type}>{type}</Dropdown.Item>
+
+                    })}
                 </DropdownButton>
             </div>
         )
